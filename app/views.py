@@ -21,5 +21,6 @@ def innerEquijoins(request):
     JDED=Emp.objects.select_related('Deptno').filter(Comm__gt=50)
     JDED=Emp.objects.select_related('Deptno').filter(Q(Sal__lt=30000)| Q(Hiredate='2024-04-15'))
     JDED=Emp.objects.select_related('Deptno').filter(Q(ename='priya') | Q(job='Analyst') | Q(empno=1368))
+    JDED=Emp.objects.select_related('Deptno').filter(Hiredate__lt='2024-04-22')
     d={'JDED':JDED}
     return render(request,'innerEquijoins.html',d)
